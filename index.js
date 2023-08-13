@@ -18,7 +18,7 @@ function init() {
     // Filter through questions
     .prompt(questions)
     .then((answers) => {
-        // 
+        // Store the new README content with user content
         const readmeFileContent = generateMarkdown(answers);
 
     // TODO: Create a function to write README file
