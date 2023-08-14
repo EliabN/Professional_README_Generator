@@ -13,17 +13,30 @@ function renderLicenseSection(license) {}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(questions) {
+
   // Convert the original string to title case
   const titleCaseString = toTitleCase(questions.title);
-  
   // Replace spaces with hyphens in the title case string
   const finalTitleString = titleCaseString.replace(/\s+/g, '-');
+
+  // Description user input to sentence case
+  const senCaseDescription = toSentenceCase(questions.description);
+  // Installation user input to sentence case
+  const senCaseInstall = toSentenceCase(questions.installation);
+  // Usage user input to sentence case
+  const senCaseUsage = toSentenceCase(questions.usage);
+  // Features user input to sentence case
+  const senCaseFeatures = toSentenceCase(questions.features);
+  // Contribute user input to sentence case
+  const senCaseContribute = toSentenceCase(questions.contribute);
+  // Tests user input to sentence case
+  const senCaseTests = toSentenceCase(questions.test);
 
   return `#  
 # ${finalTitleString}
 ## Description
 
-${questions.description}
+${senCaseDescription}
 
 ## Table of Contents (Optional)
 
@@ -37,46 +50,47 @@ If your README is long, add a table of contents to make it easy for users to fin
 - [Features](#features)
 - [How to Contribute](#contribute)
 - [Tests](#tests)
+- [Contact](#contact)
 
-${questions.tableContent}
+{questions.tableContent}
 
 ## Installation
 
-${questions.installation}
+{senCaseInstall}
 
 ## Usage
 
-${questions.usage}
+{senCaseUsage}
 
 ## Credits
 
-${questions.credits}
+{questions.credits}
 
 ## License
 
-${questions.license}
+{questions.license}
 
 ---
 
 ## Badges
 
-${questions.badges}
+{questions.badges}
 
 ## Features
 
-${questions.features}
+{senCaseFeatures}
 
 ## How to Contribute
 
-${questions.contribute}
+{senCaseContribute}
 
 ## Tests
 
-${questions.test}
+{senCaseTests}
 
 ## Contact
 
-Email: ${questions.email}
+Email: {questions.email}
 `;}
 
 
@@ -89,5 +103,9 @@ function toTitleCase(str) {
   );
 }
 
+
+function toSentenceCase(str) {
+  return str.replace(/(^\w{1}|\.\s*\w{1})/g, (match) => match.toUpperCase());
+}
 
 module.exports = generateMarkdown;
