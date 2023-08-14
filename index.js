@@ -7,7 +7,7 @@ const fs = require('fs');
 const questions = [
     {
       type: 'input',
-      name: 'name',
+      name: 'title',
       message: 'What is the name of your project?',
     },
     {
@@ -32,13 +32,15 @@ const questions = [
       - [Badges](#badges)
       - [Features](#features)
       - [How to Contribute](#contribute)
-      - [Tests](#tests)`
+      - [Tests](#tests)
+      
+      If you would like to include a bookmark type here:`
       ,
     },
     {
       type: 'input',
       name: 'installation',
-      message: 'What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.',
+      message: 'What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running:',
     },
     {
       type: 'input',
