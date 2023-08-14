@@ -2,6 +2,7 @@
 const generateMarkdown = require('./utils/generateMarkdown');
 const inquirer = require('inquirer');
 const fs = require('fs');
+const { default: Choice } = require('inquirer/lib/objects/choice');
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -28,7 +29,7 @@ const questions = [
     {
       type: 'input',
       name: 'usage',
-      message: 'Provide instructions and examples for use. \nInclude screenshots as needed. May using the following syntax: \n![Sample img](sample/sample-screenshot.png)}, otherwise enter N/A for now:',
+      message: 'Provide instructions and examples for use. \nInclude screenshots as needed. May using the following syntax: \n![Sample img](sample/sample-screenshot.png), otherwise enter N/A for now:',
     },
     {
       type: 'input',
@@ -36,14 +37,10 @@ const questions = [
       message: 'List your collaborators, third-party assets that require attribution, \nany extra information, with links to their GitHub profiles.\notherwise N/A:',
     },
     {
-      type: 'input',
+      type: 'list',
       name: 'license',
       message: 'This is the license section. If you need help choosing a license, \nrefer to [https://choosealicense.com/](https://choosealicense.com/). \nYou can pick from the following or provide your own here:',
-    },
-    {
-      type: 'input',
-      name: 'badges',
-      message: 'Badges aren\'t necessary, but if you require any;Check out the badges hosted by \n[shields.io](https://shields.io/). Otherwise enter N/A:',
+      choices: ['MIT', 'Apache 2.0', 'Mozilla Public License 2.0', 'GNU General Public License v3.0'],
     },
     {
       type: 'input',
@@ -78,7 +75,7 @@ function init() {
         const readmeFileContent = generateMarkdown(answers);
 
     // TODO: Create a function to write README file
-    fs.writeFile('sample/sampleREADME.md', readmeFileContent, (err) =>
+    fs.writeFile('sampleREADME.md', readmeFileContent, (err) =>
     err ? console.log(err) : console.log('Successfully created index.md!'));
 });
 }

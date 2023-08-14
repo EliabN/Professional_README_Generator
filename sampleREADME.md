@@ -1,10 +1,10 @@
-# Bbb
+# Name Project Title
 
-  {license}
+![License](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)
 
-  ## Description
+## Description
 
-Cccc
+Create a profesional README.Md
 
 ## Table of Contents
 
@@ -20,40 +20,37 @@ Cccc
 
 ## Installation
 
-Ddd
+Npm (npm instal) and node index.Js to run
 
 ## Usage
 
-Eee
+![Sample img](sample/sample-screenshot.png)
 
 ## Credits
 
-fff
+N/A
 
 ## License
 
-ggg
+Mozilla Public License 2.0
 
 ---
 
-## Badges
-
-hhh
-
 ## Features
 
-{senCaseFeatures}
+Create a sapmleREADME.Md
 
 ## How to Contribute
 
-Jjj
+N/A
 
 ## Tests
 
-Kkk
+N/A
 
 ## Contact
-
+``````
 If you have a question can reach via
-Email: 
-More of my work: [aaa](https://github.com/aaa/).
+Email: eliabefghhgf@gmail.com
+More of my work: [eliabN](https://github.com/eliabN/).
+``````

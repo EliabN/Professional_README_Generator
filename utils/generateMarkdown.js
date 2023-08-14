@@ -1,6 +1,25 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(license) {}
+function renderLicenseBadge(license) {
+  // Define a mapping of license types to their corresponding badge URLs
+  const licenseBadgeUrls = {
+    'MIT': 'https://img.shields.io/badge/License-MIT-yellow.svg',
+    'Apache 2.0': 'https://img.shields.io/badge/License-Apache%202.0-blue.svg',
+    'Mozilla Public License 2.0': 'https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg',
+    'GNU General Public License v3.0': 'https://img.shields.io/badge/License-GPL%20v3-blue.svg',
+    'None': '',
+    // Add more license types and badge URLs as needed
+  };
+  // Check if the license type exists in the mapping
+  if (licenseBadgeUrls.hasOwnProperty(license)) {
+    // If the license type exists, return the corresponding badge URL
+    return `![License](${licenseBadgeUrls[license]})`;
+  } else {
+    // If the license type is not found, return an empty string
+    return '';
+  }
+}
+
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
@@ -14,25 +33,35 @@ function renderLicenseSection(license) {}
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(questions) {
 
-  // Convert the original string to title case
-  const titleCaseTitle = toTitleCase(questions.title);
+// Convert the original string to title case
+const titleCaseTitle = toTitleCase(questions.title);
 
-  // Description user input to sentence case
-  const senCaseDescription = toSentenceCase(questions.description);
-  // Installation user input to sentence case
-  const senCaseInstall = toSentenceCase(questions.installation);
-  // Usage user input to sentence case
-  const senCaseUsage = toSentenceCase(questions.usage);
-  // Features user input to sentence case
-  const senCaseFeatures = toSentenceCase(questions.features);
-  // Contribute user input to sentence case
-  const senCaseContribute = toSentenceCase(questions.contribute);
-  // Tests user input to sentence case
-  const senCaseTests = toSentenceCase(questions.tests);
+// Description user input to sentence case
+const senCaseDescription = toSentenceCase(questions.description);
+// Installation user input to sentence case
+const senCaseInstall = toSentenceCase(questions.installation);
+// Usage user input to sentence case
+const senCaseUsage = toSentenceCase(questions.usage);
+// Features user input to sentence case
+const senCaseFeatures = toSentenceCase(questions.features);
+// Contribute user input to sentence case
+const senCaseContribute = toSentenceCase(questions.contribute);
+// Tests user input to sentence case
+const senCaseTests = toSentenceCase(questions.tests);
+
+
+// Define the license type
+//const licenseType = 'MIT';
+
+// Call the renderLicenseBadge function with the defined license type
+const badge = renderLicenseBadge(questions.license);
+
+// Print the badge
+console.log(badge);
 
   return `# ${titleCaseTitle}
 
-{license}
+${badge}
 
 ## Description
 
@@ -68,13 +97,9 @@ ${questions.license}
 
 ---
 
-## Badges
-
-${questions.badges}
-
 ## Features
 
-{senCaseFeatures}
+${senCaseFeatures}
 
 ## How to Contribute
 
