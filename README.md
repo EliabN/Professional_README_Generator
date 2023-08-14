@@ -26,4 +26,4 @@ node index.js
 
 Because this application won’t be deployed, here is a walkthrough video that demonstrates its functionality.
 
-[Demonstrates video](https://drive.google.com/file/d/1UELpF12FiC0BAFuZsK8HcyhNiQ-vOOrN/view)
+Click the link for the [Demonstration video](https://drive.google.com/file/d/1UELpF12FiC0BAFuZsK8HcyhNiQ-vOOrN/view)
