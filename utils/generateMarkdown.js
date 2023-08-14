@@ -15,9 +15,7 @@ function renderLicenseSection(license) {}
 function generateMarkdown(questions) {
 
   // Convert the original string to title case
-  const titleCaseString = toTitleCase(questions.title);
-  // Replace spaces with hyphens in the title case string
-  const finalTitleString = titleCaseString.replace(/\s+/g, '-');
+  const titleCaseTitle = toTitleCase(questions.title);
 
   // Description user input to sentence case
   const senCaseDescription = toSentenceCase(questions.description);
@@ -30,17 +28,17 @@ function generateMarkdown(questions) {
   // Contribute user input to sentence case
   const senCaseContribute = toSentenceCase(questions.contribute);
   // Tests user input to sentence case
-  const senCaseTests = toSentenceCase(questions.test);
+  const senCaseTests = toSentenceCase(questions.tests);
 
-  return `#  
-# ${finalTitleString}
+  return `# ${titleCaseTitle}
+
+{license}
+
 ## Description
 
 ${senCaseDescription}
 
-## Table of Contents (Optional)
-
-If your README is long, add a table of contents to make it easy for users to find what they need.
+## Table of Contents
 
 - [Installation](#installation)
 - [Usage](#usage)
@@ -52,29 +50,27 @@ If your README is long, add a table of contents to make it easy for users to fin
 - [Tests](#tests)
 - [Contact](#contact)
 
-{questions.tableContent}
-
 ## Installation
 
-{senCaseInstall}
+${senCaseInstall}
 
 ## Usage
 
-{senCaseUsage}
+${senCaseUsage}
 
 ## Credits
 
-{questions.credits}
+${questions.credits}
 
 ## License
 
-{questions.license}
+${questions.license}
 
 ---
 
 ## Badges
 
-{questions.badges}
+${questions.badges}
 
 ## Features
 
@@ -82,30 +78,31 @@ If your README is long, add a table of contents to make it easy for users to fin
 
 ## How to Contribute
 
-{senCaseContribute}
+${senCaseContribute}
 
 ## Tests
 
-{senCaseTests}
+${senCaseTests}
 
 ## Contact
 
-Email: {questions.email}
-`;}
+If you have a question can reach via
+Email: ${questions.email}
+More of my work: [${questions.github}](https://github.com/${questions.github}/).`;}
 
 
 // Function to convert a string to title case
-function toTitleCase(str) {
+function toTitleCase(string) {
   // Use a regular expression to match each word
-  return str.replace(/\w\S*/g, (txt) =>
+  return string.replace(/\w\S*/g, (word) =>
     // Capitalize the first letter of the word and rest lowercase
-    txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+    word.charAt(0).toUpperCase() + word.substr(1).toLowerCase()
   );
 }
 
 
-function toSentenceCase(str) {
-  return str.replace(/(^\w{1}|\.\s*\w{1})/g, (match) => match.toUpperCase());
+function toSentenceCase(string) {
+  return string.replace(/(^\w{1}|\.\s*\w{1})/g, (match) => match.toUpperCase());
 }
 
 module.exports = generateMarkdown;
