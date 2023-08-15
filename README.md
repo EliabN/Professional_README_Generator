@@ -1,4 +1,7 @@
 # Professional README Generator
+
+![License](https://img.shields.io/badge/License-MIT-yellow.svg)
+
 ## Description
 
 You can quickly and easily create a README file by using a command-line application to generate one. This allows the project creator to devote more time to working on the project.
@@ -27,3 +30,9 @@ node index.js
 Because this application won’t be deployed, here is a walkthrough video that demonstrates its functionality.
 
 Click the link for the [Demonstration video](https://drive.google.com/file/d/1UELpF12FiC0BAFuZsK8HcyhNiQ-vOOrN/view)
+
+## License
+
+This project license is under the [MIT](https://opensource.org/licenses/MIT)
+
+---
